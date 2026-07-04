@@ -81,6 +81,8 @@ background: rgba(255, 255, 255, 0.55);
 .glass-chip.safari-glass {
 overflow: hidden;
 background: rgba(255, 255, 255, 0.14);
+backdrop-filter: none;
+-webkit-backdrop-filter: none;
 }
 
 .safari-glass-canvas {
@@ -477,10 +479,26 @@ var srcH = chipRect.height / scale;
 var w = fieldW, h = fieldH;
 if (w < 2 || h < 2) return;
 
+if (!isFinite(srcX) || !isFinite(srcY) || !isFinite(srcW) || !isFinite(srcH) || srcW <= 0 || srcH <= 0) return;
+
+var clampedX = Math.max(0, srcX);
+var clampedY = Math.max(0, srcY);
+var clampedX2 = Math.min(nw, srcX + srcW);
+var clampedY2 = Math.min(nh, srcY + srcH);
+var clampedW = clampedX2 - clampedX;
+var clampedH = clampedY2 - clampedY;
+if (clampedW <= 0 || clampedH <= 0) return;
+
+var destX = (clampedX - srcX) / srcW * w;
+var destY = (clampedY - srcY) / srcH * h;
+var destW = clampedW / srcW * w;
+var destH = clampedH / srcH * h;
+
 offCtx.save();
+offCtx.clearRect(0, 0, w, h);
 offCtx.filter = 'blur(1px)';
 try {
-offCtx.drawImage(video, srcX, srcY, srcW, srcH, 0, 0, w, h);
+offCtx.drawImage(video, clampedX, clampedY, clampedW, clampedH, destX, destY, destW, destH);
 } catch (e) { offCtx.restore(); return; }
 offCtx.restore();
 
