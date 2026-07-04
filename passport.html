@@ -206,12 +206,12 @@ letter-spacing: 1px;
 <source src="passport-header-video.mp4" type="video/mp4">
 </video>
 <svg width="0" height="0" style="position:absolute;overflow:hidden">
-<filter id="liquidGlassFilter" x="-35%" y="-35%" width="170%" height="170%" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+<filter id="liquidGlassFilter" x="-45%" y="-45%" width="190%" height="190%" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB">
 <feImage id="glassDisplacementMap" x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="map"/>
 <feGaussianBlur in="SourceGraphic" stdDeviation="0.007" result="blurred"/>
-<feDisplacementMap in="blurred" in2="map" scale="0.09" xChannelSelector="R" yChannelSelector="G" result="dispG"/>
-<feDisplacementMap in="blurred" in2="map" scale="0.11" xChannelSelector="R" yChannelSelector="G" result="dispR"/>
-<feDisplacementMap in="blurred" in2="map" scale="0.07" xChannelSelector="R" yChannelSelector="G" result="dispB"/>
+<feDisplacementMap in="blurred" in2="map" scale="0.015" xChannelSelector="R" yChannelSelector="G" result="dispG"/>
+<feDisplacementMap in="blurred" in2="map" scale="0.24" xChannelSelector="R" yChannelSelector="G" result="dispR"/>
+<feDisplacementMap in="blurred" in2="map" scale="-0.22" xChannelSelector="R" yChannelSelector="G" result="dispB"/>
 <feColorMatrix in="dispR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="rOnly"/>
 <feColorMatrix in="dispG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="gOnly"/>
 <feColorMatrix in="dispB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="bOnly"/>
