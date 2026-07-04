@@ -6,216 +6,215 @@
 <title>Jewelry Passport – Selas</title>
 <style>
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 html, body {
-  overflow-x: hidden;
+overflow-x: hidden;
 }
 
 body {
-  background: #ffffff;
-  min-height: 100vh;
-  padding: 0 0 80px;
-  font-family: 'Georgia', serif;
-  animation: fadeIn 1s ease-in;
+background: #ffffff;
+min-height: 100vh;
+padding: 0 0 80px;
+font-family: 'Georgia', serif;
+animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+from { opacity: 0; }
+to { opacity: 1; }
 }
 
 .header-video-wrapper {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 32px;
-  overflow: hidden;
-  line-height: 0;
-  max-height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 100vw;
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+margin-bottom: 32px;
+overflow: hidden;
+line-height: 0;
+max-height: 220px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .header-video-wrapper video {
-  width: 100%;
-  height: auto;
-  max-height: 220px;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
+width: 100%;
+height: auto;
+max-height: 220px;
+object-fit: cover;
+display: block;
+pointer-events: none;
+user-select: none;
+-webkit-user-select: none;
 }
 
 .glass-chip {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 22px 40px;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(6px) saturate(180%);
-  -webkit-backdrop-filter: blur(6px) saturate(180%);
-  backdrop-filter: url(#liquid-glass-filter) blur(2px) saturate(160%);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 2;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 22px 40px;
+border-radius: 28px;
+}
+
+.glass-canvas {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: block;
+z-index: 1;
+pointer-events: none;
+}
+
+.glass-chip.no-webgl {
+border: 1px solid rgba(255, 255, 255, 0.65);
+box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+background: rgba(255, 255, 255, 0.18);
+backdrop-filter: blur(6px) saturate(180%);
+-webkit-backdrop-filter: blur(6px) saturate(180%);
 }
 
 .passport-logo-overlay {
-  width: 340px;
-  height: auto;
-  display: block;
-  position: relative;
-  z-index: 3;
+width: 340px;
+height: auto;
+display: block;
+position: relative;
+z-index: 3;
 }
 
 @media (max-width: 480px) {
-  .header-video-wrapper {
-    max-height: 150px;
-  }
-  .header-video-wrapper video {
-    max-height: 150px;
-  }
-  .glass-chip {
-    padding: 14px 24px;
-    border-radius: 20px;
-  }
-  .passport-logo-overlay {
-    width: 240px;
-  }
+.header-video-wrapper {
+max-height: 150px;
+}
+.header-video-wrapper video {
+max-height: 150px;
+}
+.glass-chip {
+padding: 14px 24px;
+border-radius: 20px;
+}
+.passport-logo-overlay {
+width: 240px;
+}
 }
 
 .passport-header {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 32px;
-  padding: 0 24px;
+width: 100%;
+text-align: center;
+margin-bottom: 32px;
+padding: 0 24px;
 }
 
 .full-divider {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 1px;
-  background: #e0e0e0;
-  margin-bottom: 32px;
+width: 100vw;
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+height: 1px;
+background: #e0e0e0;
+margin-bottom: 32px;
 }
 
 .passport {
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
+width: 100%;
+max-width: 480px;
+margin: 0 auto;
+padding: 0 24px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0;
 }
 
 .passport-title {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: #111;
+font-size: 28px;
+font-weight: 700;
+letter-spacing: 6px;
+text-transform: uppercase;
+color: #111;
 }
 
 .stone-image {
-  width: 260px;
-  height: auto;
-  margin-bottom: 40px;
+width: 260px;
+height: auto;
+margin-bottom: 40px;
 }
 
 .name-block {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 40px;
+width: 100%;
+text-align: center;
+margin-bottom: 40px;
 }
 
 .name-label {
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #aaa;
-  margin-bottom: 8px;
+font-size: 10px;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: #aaa;
+margin-bottom: 8px;
 }
 
 .name-value {
-  font-size: 36px;
-  font-weight: 300;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  color: #111;
+font-size: 36px;
+font-weight: 300;
+letter-spacing: 8px;
+text-transform: uppercase;
+color: #111;
 }
 
 .info-block {
-  width: 100%;
-  border-top: 1px solid #e8e8e8;
-  padding: 24px 0;
+width: 100%;
+border-top: 1px solid #e8e8e8;
+padding: 24px 0;
 }
 
 .info-label {
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #aaa;
-  margin-bottom: 8px;
+font-size: 13px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: #aaa;
+margin-bottom: 8px;
 }
 
 .info-value {
-  font-size: 15px;
-  color: #222;
-  line-height: 1.7;
-  font-style: italic;
+font-size: 15px;
+color: #222;
+line-height: 1.7;
+font-style: italic;
 }
 
 .info-value.regular {
-  font-style: normal;
-  letter-spacing: 1px;
+font-style: normal;
+letter-spacing: 1px;
 }
 
 .info-value.mono {
-  font-family: 'Georgia', serif;
-  font-style: normal;
-  font-size: 14px;
-  letter-spacing: 1px;
+font-family: 'Georgia', serif;
+font-style: normal;
+font-size: 14px;
+letter-spacing: 1px;
 }
 </style>
 </head>
 <body>
 
-<svg style="position:absolute; width:0; height:0;">
-<filter id="liquid-glass-filter" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-<feTurbulence type="fractalNoise" baseFrequency="0.012 0.014" numOctaves="2" seed="5" stitchTiles="stitch" result="noise"/>
-<feGaussianBlur in="noise" stdDeviation="3" result="softNoise"/>
-<feDisplacementMap in="SourceGraphic" in2="softNoise" scale="14" xChannelSelector="R" yChannelSelector="G" result="dispR"/>
-<feColorMatrix in="dispR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chanR"/>
-<feDisplacementMap in="SourceGraphic" in2="softNoise" scale="20" xChannelSelector="R" yChannelSelector="G" result="dispG"/>
-<feColorMatrix in="dispG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chanG"/>
-<feDisplacementMap in="SourceGraphic" in2="softNoise" scale="26" xChannelSelector="R" yChannelSelector="G" result="dispB"/>
-<feColorMatrix in="dispB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="chanB"/>
-<feBlend in="chanR" in2="chanG" mode="screen" result="rg"/>
-<feBlend in="rg" in2="chanB" mode="screen"/>
-</filter>
-</svg>
-
 <div class="header-video-wrapper">
 <video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
 <source src="passport-header-video.mp4" type="video/mp4">
 </video>
-<div class="glass-chip">
+<div class="glass-chip" id="glassChip">
+<canvas class="glass-canvas" id="glassCanvas"></canvas>
 <img src="doric-logo-text.png" alt="Doric Jewelry" class="passport-logo-overlay">
 </div>
 </div>
@@ -256,5 +255,247 @@ body {
 </div>
 
 </div>
+
+<script>
+(function() {
+  var wrapper = document.querySelector('.header-video-wrapper');
+  var video = wrapper.querySelector('video');
+  var chip = document.getElementById('glassChip');
+  var canvas = document.getElementById('glassCanvas');
+  var gl = canvas.getContext('webgl2');
+
+  if (!gl) {
+    chip.classList.add('no-webgl');
+    canvas.style.display = 'none';
+    return;
+  }
+
+  var vsSource = [
+    '#version 300 es',
+    'in vec2 a_pos;',
+    'void main() {',
+    '  gl_Position = vec4(a_pos, 0.0, 1.0);',
+    '}'
+  ].join('\n');
+
+  var fsSource = [
+    '#version 300 es',
+    'precision highp float;',
+    'uniform vec2 u_canvasSize;',
+    'uniform float u_radius;',
+    'uniform float u_edgeThickness;',
+    'uniform float u_refractStrength;',
+    'uniform float u_dispersion;',
+    'uniform float u_fresnelIntensity;',
+    'uniform float u_blurLod;',
+    'uniform sampler2D u_videoTex;',
+    'uniform vec2 u_renderedVideoSize;',
+    'uniform vec2 u_videoOffset;',
+    'uniform vec2 u_chipOffset;',
+    'out vec4 fragColor;',
+    '',
+    'float sdRoundRect(vec2 p, vec2 halfSize, float r) {',
+    '  vec2 d = abs(p) - halfSize + r;',
+    '  return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0) - r;',
+    '}',
+    '',
+    'vec2 sdNormal(vec2 p, vec2 halfSize, float r) {',
+    '  float eps = 1.0;',
+    '  float dx = sdRoundRect(p + vec2(eps, 0.0), halfSize, r) - sdRoundRect(p - vec2(eps, 0.0), halfSize, r);',
+    '  float dy = sdRoundRect(p + vec2(0.0, eps), halfSize, r) - sdRoundRect(p - vec2(0.0, eps), halfSize, r);',
+    '  vec2 n = vec2(dx, dy);',
+    '  float len = length(n);',
+    '  return len > 0.0001 ? n / len : vec2(0.0);',
+    '}',
+    '',
+    'vec3 sampleVideo(vec2 wrapperPx, float lod) {',
+    '  vec2 uv = (wrapperPx + u_videoOffset) / u_renderedVideoSize;',
+    '  uv.y = 1.0 - uv.y;',
+    '  uv = clamp(uv, 0.0, 1.0);',
+    '  return textureLod(u_videoTex, uv, lod).rgb;',
+    '}',
+    '',
+    'void main() {',
+    '  vec2 fragPx = gl_FragCoord.xy;',
+    '  vec2 p_topleft = vec2(fragPx.x, u_canvasSize.y - fragPx.y);',
+    '  vec2 center = u_canvasSize * 0.5;',
+    '  vec2 p = p_topleft - center;',
+    '  vec2 halfSize = u_canvasSize * 0.5;',
+    '  float dist = sdRoundRect(p, halfSize, u_radius);',
+    '',
+    '  float alpha = smoothstep(1.5, -1.5, dist);',
+    '  if (alpha < 0.003) { fragColor = vec4(0.0); return; }',
+    '',
+    '  vec2 normal = sdNormal(p, halfSize, u_radius);',
+    '  float insideDist = -dist;',
+    '  float edgeFactor = clamp(1.0 - insideDist / u_edgeThickness, 0.0, 1.0);',
+    '  edgeFactor = edgeFactor * edgeFactor * (3.0 - 2.0 * edgeFactor);',
+    '',
+    '  vec2 wrapperPx = u_chipOffset + p_topleft;',
+    '  vec2 refractOffset = normal * edgeFactor * u_refractStrength;',
+    '  float lod = mix(u_blurLod, u_blurLod * 0.12, edgeFactor);',
+    '  vec2 baseSamplePx = wrapperPx + refractOffset;',
+    '  float dOff = edgeFactor * u_dispersion;',
+    '',
+    '  vec3 colR = sampleVideo(baseSamplePx + normal * dOff * 1.6, lod);',
+    '  vec3 colG = sampleVideo(baseSamplePx, lod);',
+    '  vec3 colB = sampleVideo(baseSamplePx - normal * dOff * 1.6, lod);',
+    '  vec3 col = vec3(colR.r, colG.g, colB.b);',
+    '',
+    '  col = mix(col, vec3(1.0), 0.05);',
+    '  float fresnel = pow(edgeFactor, 4.0) * u_fresnelIntensity;',
+    '  col = mix(col, vec3(1.0), fresnel);',
+    '',
+    '  fragColor = vec4(col, alpha);',
+    '}'
+  ].join('\n');
+
+  function compileShader(type, source) {
+    var shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+      gl.deleteShader(shader);
+      return null;
+    }
+    return shader;
+  }
+
+  var vs = compileShader(gl.VERTEX_SHADER, vsSource);
+  var fs = compileShader(gl.FRAGMENT_SHADER, fsSource);
+  if (!vs || !fs) { chip.classList.add('no-webgl'); canvas.style.display = 'none'; return; }
+
+  var program = gl.createProgram();
+  gl.attachShader(program, vs);
+  gl.attachShader(program, fs);
+  gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    console.error('Program link error:', gl.getProgramInfoLog(program));
+    chip.classList.add('no-webgl');
+    canvas.style.display = 'none';
+    return;
+  }
+  gl.useProgram(program);
+
+  var quad = new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]);
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
+  var aPos = gl.getAttribLocation(program, 'a_pos');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  var uCanvasSize = gl.getUniformLocation(program, 'u_canvasSize');
+  var uRadius = gl.getUniformLocation(program, 'u_radius');
+  var uEdgeThickness = gl.getUniformLocation(program, 'u_edgeThickness');
+  var uRefractStrength = gl.getUniformLocation(program, 'u_refractStrength');
+  var uDispersion = gl.getUniformLocation(program, 'u_dispersion');
+  var uFresnelIntensity = gl.getUniformLocation(program, 'u_fresnelIntensity');
+  var uBlurLod = gl.getUniformLocation(program, 'u_blurLod');
+  var uVideoTex = gl.getUniformLocation(program, 'u_videoTex');
+  var uRenderedVideoSize = gl.getUniformLocation(program, 'u_renderedVideoSize');
+  var uVideoOffset = gl.getUniformLocation(program, 'u_videoOffset');
+  var uChipOffset = gl.getUniformLocation(program, 'u_chipOffset');
+
+  var tex = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+
+  var geo = {
+    renderedVideoSize: [1,1],
+    videoOffset: [0,0],
+    chipOffset: [0,0],
+    canvasWidth: 1,
+    canvasHeight: 1,
+    radius: 28,
+    edgeThickness: 16,
+    refractStrength: 10,
+    dispersion: 2.2
+  };
+
+  function updateGeometry() {
+    var wrapperRect = wrapper.getBoundingClientRect();
+    var chipRect = chip.getBoundingClientRect();
+    var dpr = window.devicePixelRatio || 1;
+
+    var cw = Math.max(1, Math.round(chipRect.width * dpr));
+    var ch = Math.max(1, Math.round(chipRect.height * dpr));
+    if (canvas.width !== cw) canvas.width = cw;
+    if (canvas.height !== ch) canvas.height = ch;
+
+    var vw = video.videoWidth, vh = video.videoHeight;
+    if (vw && vh) {
+      var wrapperW = wrapperRect.width, wrapperH = wrapperRect.height;
+      var scale = Math.max(wrapperW / vw, wrapperH / vh);
+      var renderedW = vw * scale * dpr;
+      var renderedH = vh * scale * dpr;
+      var offsetX = (renderedW - wrapperW * dpr) / 2;
+      var offsetY = (renderedH - wrapperH * dpr) / 2;
+      geo.renderedVideoSize = [renderedW, renderedH];
+      geo.videoOffset = [offsetX, offsetY];
+    }
+
+    var chipOffsetX = (chipRect.left - wrapperRect.left) * dpr;
+    var chipOffsetY = (chipRect.top - wrapperRect.top) * dpr;
+    geo.chipOffset = [chipOffsetX, chipOffsetY];
+    geo.canvasWidth = cw;
+    geo.canvasHeight = ch;
+
+    var radiusPx = parseFloat(getComputedStyle(chip).borderRadius) || 28;
+    geo.radius = radiusPx * dpr;
+    geo.edgeThickness = Math.max(10, radiusPx * 0.7) * dpr;
+    geo.refractStrength = 10 * dpr;
+    geo.dispersion = 2.2 * dpr;
+  }
+
+  window.addEventListener('resize', updateGeometry);
+  video.addEventListener('loadedmetadata', updateGeometry);
+
+  function render() {
+    requestAnimationFrame(render);
+    if (video.readyState < 2 || video.videoWidth === 0) return;
+
+    updateGeometry();
+    gl.viewport(0, 0, geo.canvasWidth, geo.canvasHeight);
+
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    try {
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
+      gl.generateMipmap(gl.TEXTURE_2D);
+    } catch (e) {
+      return;
+    }
+
+    gl.useProgram(program);
+    gl.uniform2f(uCanvasSize, geo.canvasWidth, geo.canvasHeight);
+    gl.uniform1f(uRadius, geo.radius);
+    gl.uniform1f(uEdgeThickness, geo.edgeThickness);
+    gl.uniform1f(uRefractStrength, geo.refractStrength);
+    gl.uniform1f(uDispersion, geo.dispersion);
+    gl.uniform1f(uFresnelIntensity, 0.35);
+    gl.uniform1f(uBlurLod, 2.5);
+    gl.uniform2f(uRenderedVideoSize, geo.renderedVideoSize[0], geo.renderedVideoSize[1]);
+    gl.uniform2f(uVideoOffset, geo.videoOffset[0], geo.videoOffset[1]);
+    gl.uniform2f(uChipOffset, geo.chipOffset[0], geo.chipOffset[1]);
+    gl.uniform1i(uVideoTex, 0);
+    gl.activeTexture(gl.TEXTURE0);
+
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  }
+
+  updateGeometry();
+  requestAnimationFrame(render);
+})();
+</script>
+
 </body>
 </html>
