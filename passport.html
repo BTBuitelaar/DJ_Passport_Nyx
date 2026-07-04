@@ -64,11 +64,11 @@ align-items: center;
 justify-content: center;
 padding: 18px 32px;
 border-radius: 22px;
-border: 1px solid rgba(255, 255, 255, 0.45);
-box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-background: rgba(255, 255, 255, 0.10);
+border: 1px solid rgba(255, 255, 255, 0.28);
+box-shadow: 0 4px 16px rgba(31, 38, 135, 0.10);
+background: rgba(255, 255, 255, 0.08);
 backdrop-filter: url(#liquidGlassFilter) saturate(160%);
--webkit-backdrop-filter: blur(6px) saturate(160%);
+-webkit-backdrop-filter: blur(4px) saturate(160%);
 }
 
 @supports not (backdrop-filter: blur(1px)) {
@@ -206,12 +206,12 @@ letter-spacing: 1px;
 <source src="passport-header-video.mp4" type="video/mp4">
 </video>
 <svg width="0" height="0" style="position:absolute;overflow:hidden">
-<filter id="liquidGlassFilter" x="-25%" y="-25%" width="150%" height="150%" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+<filter id="liquidGlassFilter" x="-35%" y="-35%" width="170%" height="170%" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB">
 <feImage id="glassDisplacementMap" x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="map"/>
-<feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blurred"/>
-<feDisplacementMap in="blurred" in2="map" scale="0.05" xChannelSelector="R" yChannelSelector="G" result="dispG"/>
-<feDisplacementMap in="blurred" in2="map" scale="0.065" xChannelSelector="R" yChannelSelector="G" result="dispR"/>
-<feDisplacementMap in="blurred" in2="map" scale="0.035" xChannelSelector="R" yChannelSelector="G" result="dispB"/>
+<feGaussianBlur in="SourceGraphic" stdDeviation="0.007" result="blurred"/>
+<feDisplacementMap in="blurred" in2="map" scale="0.09" xChannelSelector="R" yChannelSelector="G" result="dispG"/>
+<feDisplacementMap in="blurred" in2="map" scale="0.11" xChannelSelector="R" yChannelSelector="G" result="dispR"/>
+<feDisplacementMap in="blurred" in2="map" scale="0.07" xChannelSelector="R" yChannelSelector="G" result="dispB"/>
 <feColorMatrix in="dispR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="rOnly"/>
 <feColorMatrix in="dispG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="gOnly"/>
 <feColorMatrix in="dispB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="bOnly"/>
@@ -299,7 +299,7 @@ mctx.fill();
 var blurred = document.createElement('canvas');
 blurred.width = w; blurred.height = h;
 var bctx = blurred.getContext('2d');
-bctx.filter = 'blur(' + Math.max(2, edge * 0.6) + 'px)';
+bctx.filter = 'blur(' + Math.max(1.5, edge * 0.32) + 'px)';
 bctx.drawImage(mask, 0, 0);
 
 var srcData;
@@ -310,7 +310,7 @@ out.width = w; out.height = h;
 var octx = out.getContext('2d');
 var outImg = octx.createImageData(w, h);
 var od = outImg.data;
-var strength = 3.2;
+var strength = 6.0;
 
 function lum(x, y) {
 x = x < 0 ? 0 : (x >= w ? w - 1 : x);
