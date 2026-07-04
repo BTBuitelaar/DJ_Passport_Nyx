@@ -65,7 +65,8 @@ justify-content: center;
 padding: 18px 32px;
 border-radius: 40px;
 border: 1px solid rgba(255, 255, 255, 0.28);
-box-shadow: 0 4px 16px rgba(31, 38, 135, 0.10);
+box-shadow: 0 4px 16px rgba(31, 38, 135, 0.10), inset 0 1px 3px rgba(255, 255, 255, 0.35), inset 0 -3px 6px rgba(0, 0, 0, 0.10);
+will-change: backdrop-filter;
 background: rgba(255, 255, 255, 0.08);
 backdrop-filter: url(#liquidGlassFilter) saturate(160%);
 -webkit-backdrop-filter: blur(4px) saturate(160%);
@@ -266,7 +267,7 @@ letter-spacing: 1px;
 var chip = document.getElementById('glassChip');
 var feImage = document.getElementById('glassDisplacementMap');
 
-function clamp8(v) { return v < 0 ? 0 : (v > 255 ? 255 : v); }
+function clamp8(v) { return 128 + 127 * Math.tanh((v - 128) / 127); }
 
 function roundRectPath(ctx, x, y, w, h, r) {
 r = Math.max(0, Math.min(r, w / 2, h / 2));
@@ -285,7 +286,7 @@ if (chipRect.width < 2 || chipRect.height < 2) return;
 var w = Math.max(2, Math.round(chipRect.width));
 var h = Math.max(2, Math.round(chipRect.height));
 var radius = parseFloat(getComputedStyle(chip).borderRadius) || 20;
-var edge = Math.max(6, radius * 0.9);
+var edge = Math.max(8, radius * 1.05);
 
 var mask = document.createElement('canvas');
 mask.width = w; mask.height = h;
@@ -310,7 +311,7 @@ out.width = w; out.height = h;
 var octx = out.getContext('2d');
 var outImg = octx.createImageData(w, h);
 var od = outImg.data;
-var strength = 9.0;
+var strength = 7.5;
 
 function lum(x, y) {
 x = x < 0 ? 0 : (x >= w ? w - 1 : x);
