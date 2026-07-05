@@ -395,7 +395,7 @@ c.closePath();
 }
 
 function computeField(w, h, radius) {
-var edge = Math.max(10, radius * 0.85);
+var edge = Math.max(4, radius * 0.15);
 var mask = document.createElement('canvas');
 mask.width = w; mask.height = h;
 var mctx = mask.getContext('2d');
@@ -408,7 +408,7 @@ mctx.fill();
 var blurred = document.createElement('canvas');
 blurred.width = w; blurred.height = h;
 var bctx = blurred.getContext('2d');
-bctx.filter = 'blur(' + Math.max(10, edge * 1.15) + 'px)';
+bctx.filter = 'blur(' + Math.max(14, radius * 0.55) + 'px)';
 bctx.drawImage(mask, 0, 0);
 
 var data;
@@ -582,6 +582,10 @@ clearTimeout(window.__safariGlassResizeTimer);
 window.__safariGlassResizeTimer = setTimeout(setup, 150);
 });
 requestAnimationFrame(render);
+window.addEventListener('load', function() { setup(); });
+video.addEventListener('loadedmetadata', function() { setup(); });
+setTimeout(setup, 300);
+setTimeout(setup, 1200);
 })();
 
 (function() {
