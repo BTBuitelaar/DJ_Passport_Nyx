@@ -365,7 +365,7 @@ buildMap();
 (function() {
 var ua = navigator.userAgent;
 var isSafari = /^((?!chrome|android|crios|fxios|edg|opios).)*safari/i.test(ua);
-if (!isSafari) return;
+if (!isSafari && location.search.indexOf('forceSafari') === -1) return;
 
 var chip = document.getElementById('glassChip');
 var video = document.querySelector('.header-video-wrapper video');
@@ -395,7 +395,7 @@ c.closePath();
 }
 
 function computeField(w, h, radius) {
-var edge = Math.max(6, radius * 0.45);
+var edge = Math.max(10, radius * 0.85);
 var mask = document.createElement('canvas');
 mask.width = w; mask.height = h;
 var mctx = mask.getContext('2d');
@@ -408,7 +408,7 @@ mctx.fill();
 var blurred = document.createElement('canvas');
 blurred.width = w; blurred.height = h;
 var bctx = blurred.getContext('2d');
-bctx.filter = 'blur(' + Math.max(4, edge * 0.85) + 'px)';
+bctx.filter = 'blur(' + Math.max(10, edge * 1.15) + 'px)';
 bctx.drawImage(mask, 0, 0);
 
 var data;
