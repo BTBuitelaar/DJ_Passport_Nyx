@@ -460,9 +460,17 @@ return out;
 }
 
 var dxS = boxBlur(boxBlur(dx));
-var dyS = boxBlur(boxBlur(dy));
+    var dyS = boxBlur(boxBlur(dy));
 
-return { dx: dxS, dy: dyS };
+    var maxAbs = 0;
+    for (var mi = 0; mi < dxS.length; mi++) {
+      var a1 = Math.abs(dxS[mi]); if (a1 > maxAbs) maxAbs = a1;
+      var a2 = Math.abs(dyS[mi]); if (a2 > maxAbs) maxAbs = a2;
+    }
+    var norm = maxAbs > 0.0001 ? (95 / maxAbs) : 1;
+    for (var mj = 0; mj < dxS.length; mj++) { dxS[mj] *= norm; dyS[mj] *= norm; }
+
+    return { dx: dxS, dy: dyS };
 }
 
 function setup() {
